@@ -8,22 +8,21 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const express = require("express");
-const conctx_1 = require("conctx");
-class UserController {
+const client_1 = require("../../utils/mysql/client");
+const config = require("config");
+class UserService {
     constructor() {
-        this.path = '/user';
-        this.router = express.Router();
-        this.getList = (request, response) => __awaiter(this, void 0, void 0, function* () {
-            const context = conctx_1.createContext();
-            console.log(context);
-            response.send("hello world");
-        });
-        this.initializeRoutes();
+        this.mysql = new client_1.default(config);
     }
-    initializeRoutes() {
-        this.router.get(`${this.path}/list`, this.getList);
+    /**
+     * 查询所有列表
+     */
+    getAllUserList() {
+        return __awaiter(this, void 0, void 0, function* () {
+            let sql = `select * from sys_dict`;
+            return yield this.mysql.execute(sql);
+        });
     }
 }
-exports.default = UserController;
-//# sourceMappingURL=user-controller.js.map
+exports.default = UserService;
+//# sourceMappingURL=user-service.js.map

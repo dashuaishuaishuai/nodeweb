@@ -11,8 +11,7 @@ class App {
         this.initializeControllers(controllers);
     }
     listen() {
-        console.log(config.get("server.port"));
-        this.app.listen(3000, () => {
+        this.app.listen(config.get("server.port"), () => {
             console.log(`App listening on the port 3000`);
         });
     }

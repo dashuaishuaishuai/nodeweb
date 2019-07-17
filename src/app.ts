@@ -1,7 +1,7 @@
 import * as bodyParser from 'body-parser';
 import * as cookieParser from 'cookie-parser';
 import * as express from 'express';
-import Controller from "./interfaces/controller.interface";
+import Controller from "./module/interfaces/controller-interface";
 import * as config from 'config';
 
 class App {

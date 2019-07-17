@@ -9,17 +9,17 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express = require("express");
-const conctx_1 = require("conctx");
+const user_service_1 = require("../service/user-service");
 class UserController {
     constructor() {
         this.path = '/user';
         this.router = express.Router();
         this.getList = (request, response) => __awaiter(this, void 0, void 0, function* () {
-            const context = conctx_1.createContext();
-            console.log(context);
-            response.send("hello world");
+            let result = yield this.service.getAllUserList();
+            response.send(result);
         });
         this.initializeRoutes();
+        this.service = new user_service_1.default();
     }
     initializeRoutes() {
         this.router.get(`${this.path}/list`, this.getList);
