@@ -9,7 +9,6 @@ class MysqlConnection {
                 params = [...params[0]];
             // 传参校验
             params = params.map(item => (item === undefined ? null : item));
-            console.log(this.connection)
             let [rows] = await this.connection.execute(sql, params);
             return rows;
         } catch (e) {

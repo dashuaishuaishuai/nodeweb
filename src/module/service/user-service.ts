@@ -12,9 +12,9 @@ class UserService implements Service {
     /**
      * 查询所有列表
      */
-    async getAllUserList(){
-        let sql=`select * from sys_dict`;
-       return await this.mysql.execute(sql)
+    async getAllUserList() {
+        let sql = `select * from sys_dict`;
+        return await this.mysql.execute(sql)
     }
 }
 

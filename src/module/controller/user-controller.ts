@@ -1,7 +1,6 @@
 import Controller from "../interfaces/controller-interface";
 import * as express from 'express';
 import UserService from "../service/user-service";
-import * as config from 'config';
 
 class UserController implements Controller {
     public path = '/user';
@@ -20,6 +19,7 @@ class UserController implements Controller {
     private getList = async (request: express.Request, response: express.Response) => {
         let result = await this.service.getAllUserList();
         response.send(result);
+
     }
 
 
